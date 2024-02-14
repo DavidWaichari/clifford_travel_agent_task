@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function travel_agent()
+    {
+        return $this->hasOne(TravelAgent::class, 'user_id');
+    }
 }

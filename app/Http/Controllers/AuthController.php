@@ -7,6 +7,7 @@ use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TravelAgent;
 
 class AuthController extends Controller
 {
@@ -24,6 +25,11 @@ class AuthController extends Controller
             'name' => $attr['name'],
             'password' => bcrypt($attr['password']),
             'email' => $attr['email']
+        ]);
+
+        //create a travel agent in travel agents table
+        $travel_agent = TravelAgent::create([
+            'user_id' => $user->id
         ]);
 
         return $this->success([
