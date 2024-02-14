@@ -3,6 +3,7 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 /* Guest Component */
 import Login from '../components/authentication/Login.vue';
+import AccommodationsList from '../components/AccommodationsList.vue';
 /* Layouts */
 
 
@@ -15,6 +16,15 @@ const routes = [
         meta: {
             middleware: "guest",
             title: `Login`
+        }
+    },
+    {
+        name: "home",
+        path: "/",
+        component: AccommodationsList,
+        meta: {
+            middleware: "auth",
+            title: `AccommodationsList`
         }
     },
 ]

@@ -36,9 +36,6 @@
                             </form>
                         </div>
                         <hr>
-                        <h2>Login With</h2>
-                        <p>Email: admin@solutech.com</p>
-                        <p>Password: password</p>
                     </div>
                 </div>
             </div>
@@ -70,8 +67,7 @@ export default {
             await axios.post('/api/auth/login',this.form).then( response =>{
                 window.localStorage.setItem("token", response.data.data.token);
                 window.localStorage.setItem("user",JSON.stringify(response.data.data.user));
-                window.location.href = "/";
-                // this.$router.push('/');
+                this.$router.push('/');
 
             }).catch(({response})=>{
                 if(response.status===422){
