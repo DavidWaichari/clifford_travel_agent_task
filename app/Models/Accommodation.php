@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Accommodation extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'standard_rack_rate',
+    ];
 }
